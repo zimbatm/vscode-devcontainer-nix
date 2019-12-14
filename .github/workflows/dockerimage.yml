@@ -10,5 +10,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - uses: elgohr/Publish-Docker-Github-Action@master
+      name: Build and Publish
+      with:
+        registry: docker.pkg.github.com
+        name: ${{github.repository}}/image
+        username: ${{github.actor}}
+        password: ${{github.token}}
+        cache: true
