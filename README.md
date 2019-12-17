@@ -57,7 +57,7 @@ ARG USER_GID=$USER_UID
 
 ## TODO
 
-Everything
+* startup nix-daemon --daemon in the background
 
 ## Roadmap
 
