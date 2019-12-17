@@ -1,6 +1,6 @@
 # vscode-devcontainer-nix
 
-**STATUS: Not working**
+**STATUS: alpha**
 
 For colleagues who insist on working on macOS and Windows. Even though all the
 binaries are built for, deployed and executed on Linux servers.
@@ -14,15 +14,11 @@ projects.
 
 ## Usage
 
-Ideally, for any nix-based projects:
-
-1. Install the VSCode plugin
-2. Copy the .devcontainer folder in your project
+1. Install the [VSCode "Remote - Containers" plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+2. Copy the .devcontainer folder in your nix-based project
 
 Then VSCode would start the container and drop you into the nix-based
 development environment.
-
-Nothing of this works yet.
 
 ## How it works
 
@@ -57,11 +53,11 @@ ARG USER_GID=$USER_UID
 
 ## TODO
 
-Everything
+* startup nix-daemon --daemon in the background
 
 ## Roadmap
 
-1. Make it work
-2. Pure nix-based docker container?
-3. It would be nice if the vs extensions could be composed together.
+1. [x] Make it work
+2. [x] Pure nix-based docker container?
+3. [ ] It would be nice if the vs extensions could be composed together.
 
