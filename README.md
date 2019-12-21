@@ -15,7 +15,7 @@ projects.
 ## Usage
 
 1. Install the [VSCode "Remote - Containers" plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-2. Copy the .devcontainer folder in your nix-based project
+2. Copy this repo under `.devcontainer` in the target project
 
 Then VSCode would start the container and drop you into the nix-based
 development environment.
@@ -39,8 +39,12 @@ It needs:
 * /bin/bash
 * /bin/sh
 * /usr/bin/env
-* passwordless sudo (optional)
+* sed
 * iproute
+
+All of this is pre-built by the
+[docker-nixpkgs](https://github.com/nix-community/docker-nixpkgs) project into
+the nixpkgs/devcontainer image.
 
 On Linux, the user must adjust the Dockerfile so that the UID and GID inside
 of the container match the user UID and GID. It looks like this could be
@@ -51,9 +55,13 @@ ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 ```
 
+I think vscode auto-detects the user UID and GID and injects them at build
+time. To be confirmed.
+
 ## TODO
 
 * startup nix-daemon --daemon in the background
+* run `direnv allow .` once the container started
 
 ## Roadmap
 
