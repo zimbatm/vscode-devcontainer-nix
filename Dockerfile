@@ -10,9 +10,7 @@ ARG USER_GID=$USER_UID
 
 RUN mkdir /home
 RUN groupadd --gid $USER_GID $USERNAME \
-  && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
-  && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers \
-  && chmod 0440 /etc/sudoers
+  && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME
 
 # Make the /nix store writable to the user
 # TODO: use the nix daemon instead so that the user cannot overwrite the store
